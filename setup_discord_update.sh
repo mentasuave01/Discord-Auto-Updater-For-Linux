@@ -29,6 +29,9 @@ TEMP_DIR="/tmp/discord_update"
 # Wrapper script URL
 WRAPPER_SCRIPT_URL="https://raw.githubusercontent.com/Doc0x1/Discord-Auto-Updater-For-Linux/master/discord-launcher.sh"
 
+# Create temp directory if it doesn't exist
+mkdir -p "$TEMP_DIR"
+
 # Download the wrapper script
 curl -L $WRAPPER_SCRIPT_URL -o $TEMP_DIR/discord-launcher.sh
 sudo chmod +x $TEMP_DIR/discord-launcher.sh
