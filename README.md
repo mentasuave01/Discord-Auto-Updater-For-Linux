@@ -31,7 +31,7 @@ This project provides a wrapper script that automatically checks for updates and
 1. **Download and Run the Setup Script**:
 
    ```bash
-   curl -L https://raw.githubusercontent.com/Doc0x1/Discord-Auto-Updater-For-Linux/master/setup_discord_update.sh -o setup_discord_update.sh
+   curl -L https://raw.githubusercontent.com/mentasuave01/Discord-Auto-Updater-For-Linux/master/setup_discord_update.sh -o setup_discord_update.sh
    chmod +x setup_discord_update.sh
    sudo ./setup_discord_update.sh
    ```
