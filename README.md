@@ -24,7 +24,7 @@ This project provides a wrapper script that automatically checks for updates and
 ### Prerequisites
 
 - A system running a Debian-based (APT) or Arch-based (AUR) Linux distribution.
-- Discord installed in `/usr/share/discord`.
+- Discord installed in `/usr/share/discord` or `/opt/discord`.
 
 ### Installation Steps
 
