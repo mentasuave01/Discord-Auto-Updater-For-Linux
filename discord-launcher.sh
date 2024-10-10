@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Check if we are on Arch Linux or debian based
+if [ ! -f /etc/arch-release ]; then
+    DISCORD_OS="arch"
+else 
+    DISCORD_OS="debian"
+fi
+
 # Check for Discord installation directory
 if [ -d "/usr/share/discord" ]; then
     DISCORD_DIR="/usr/share/discord"
@@ -32,7 +39,13 @@ get_latest_version() {
 
 # Function to update Discord
 update_discord() {
-    sudo dpkg -i "$TEMP_DIR/discord.deb"
+    if [ "$DISCORD_OS" = "debian" ]; then
+        sudo dpkg -i "$TEMP_DIR/discord.deb"
+    elif [ "$DISCORD_OS" = "arch" ]; then
+        # For Arch, we just update the version in build_info.json
+        sudo sed -i "s/\"version\": \"$INSTALLED_VERSION\"/\"version\": \"$LATEST_VERSION\"/" "$DISCORD_DIR/resources/build_info.json"
+        echo "Updated build_info.json with new version $LATEST_VERSION"
+    fi
     rm -rf "$TEMP_DIR"
 }
 
@@ -58,4 +71,4 @@ else
 fi
 
 # Launch Discord
-/usr/share/discord/Discord.orig
+"$TEMP_DIR/Discord.orig"
