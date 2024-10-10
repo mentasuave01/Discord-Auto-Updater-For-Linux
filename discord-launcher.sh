@@ -1,7 +1,14 @@
 #!/bin/bash
 
-# Directory where Discord is installed
-DISCORD_DIR="/usr/share/discord"
+# Check for Discord installation directory
+if [ -d "/usr/share/discord" ]; then
+    DISCORD_DIR="/usr/share/discord"
+elif [ -d "/opt/discord" ]; then
+    DISCORD_DIR="/opt/discord"
+else
+    echo "Discord installation not found in /usr/share/discord or /opt/discord. Please ensure Discord is installed."
+    exit 1
+fi
 
 # URL to fetch the latest .deb package
 DISCORD_DOWNLOAD_URL="https://discord.com/api/download/stable?platform=linux&format=deb"
